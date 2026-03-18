@@ -460,7 +460,184 @@
       white-space: nowrap;
     }
 
-    /* CERTIFICATES */
+    /* PROJECTS */
+    #projects { background: var(--bg); }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+    }
+    .project-card:hover { border-color: rgba(200,242,48,0.3); }
+
+    .project-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200,242,48,0.15);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tag-line {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .project-desc strong { color: var(--text); }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .stack-tag {
+      background: rgba(200,242,48,0.08);
+      border: 1px solid rgba(200,242,48,0.2);
+      color: var(--accent);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 2px;
+    }
+
+    /* Mock browser UI */
+    .project-visual {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .pv-bar {
+      background: #0a0a12;
+      padding: 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pv-url {
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-left: 0.75rem;
+      letter-spacing: 0.05em;
+      background: var(--surface);
+      padding: 0.25rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .pv-body {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      min-height: 200px;
+    }
+
+    .pv-sidebar {
+      background: rgba(0,0,0,0.3);
+      border-right: 1px solid var(--border);
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .pv-nav-item {
+      font-size: 0.6rem;
+      padding: 0.5rem 0.75rem;
+      color: var(--muted);
+      cursor: default;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .pv-active {
+      background: rgba(200,242,48,0.1);
+      color: var(--accent);
+      border-right: 2px solid var(--accent);
+    }
+
+    .pv-main {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pv-search-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.6rem;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+
+    .pv-cards { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .pv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.6rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .pv-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .pv-lost { background: var(--accent3); box-shadow: 0 0 6px var(--accent3); }
+    .pv-found { background: #27c93f; box-shadow: 0 0 6px #27c93f; }
+
+    @media (max-width: 768px) {
+      .project-card { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.5rem; }
+      .project-right { display: none; }
+    }
+
     #certificates { background: var(--bg); }
 
     .cert-grid {
@@ -677,6 +854,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#hobbies">Interests</a></li>
       <li><a href="resume.pdf.pdf" target="_blank">Resume</a></li>
@@ -758,8 +936,8 @@
           <br/>
           <p>
             When I'm not coding or designing, you'll find me immersed in
-            exploring indie games, or diving into<strong >thought-provoking tech concepts</strong>. Currently vibing to
-            Tame Impala,Tamil songs, and Tv Girl.
+            exploring indie games, or diving into <strong>thought-provoking tech concepts</strong>.
+            Currently vibing to Tame Impala, Tamil songs, and Tv Girl.
           </p>
         </div>
         <div class="about-stats reveal">
@@ -828,6 +1006,60 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-wrap">
+      <div class="section-label reveal">Built</div>
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="project-card reveal">
+        <div class="project-left">
+          <div class="project-number">01</div>
+          <div class="project-meta">
+            <div class="project-tag-line">Web Application</div>
+            <h3 class="project-name">Lost Needs</h3>
+            <p class="project-desc">
+              A full-stack <strong>Lost &amp; Found platform</strong> that connects people who've lost items
+              with those who've found them. Built to solve a real-world problem with a clean,
+              user-friendly interface — making the process of reporting and recovering lost belongings
+              simple and efficient.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python Flask</span>
+              <span class="stack-tag">SQLite</span>
+              <span class="stack-tag">HTML</span>
+              <span class="stack-tag">CSS</span>
+              <span class="stack-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-right">
+          <div class="project-visual">
+            <div class="pv-bar">
+              <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+              <span class="pv-url">lostneed.app / dashboard</span>
+            </div>
+            <div class="pv-body">
+              <div class="pv-sidebar">
+                <div class="pv-nav-item pv-active">🔍 Find Item</div>
+                <div class="pv-nav-item">📋 Report Lost</div>
+                <div class="pv-nav-item">✅ Found Item</div>
+                <div class="pv-nav-item">👤 Profile</div>
+              </div>
+              <div class="pv-main">
+                <div class="pv-search-bar">Search lost items...</div>
+                <div class="pv-cards">
+                  <div class="pv-card"><div class="pv-dot pv-lost"></div><span>Lost: Black Wallet</span></div>
+                  <div class="pv-card"><div class="pv-dot pv-found"></div><span>Found: Keys · MG Road</span></div>
+                  <div class="pv-card"><div class="pv-dot pv-lost"></div><span>Lost: Student ID</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CERTIFICATES -->
   <section id="certificates">
     <div class="section-wrap">
@@ -874,12 +1106,6 @@
             <div class="cert-issuer">College Event</div>
             <a href="ppt.jpg" target="_blank" class="cert-view">View Certificate →</a>
           </div>
-        </div>
-
-        <!-- Placeholder slot -->
-        <div class="cert-card-add reveal" onclick="alert('To add a certificate: place the image file in the same folder as index.html, then copy one of the cert-card blocks and update the image src, name, and issuer!')">
-          <div class="plus">+</div>
-          <span>Add Certificate<br/><span style="font-size:0.6rem;opacity:0.5">// Drop your image file here</span></span>
         </div>
 
       </div>
